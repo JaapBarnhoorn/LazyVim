@@ -9,9 +9,15 @@ return {
     end,
   },
   {
+    "catppuccin",
+    opts = {
+      transparent_background = true,
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "everforest",
+      colorscheme = "catppuccin-macchiato",
     },
   },
 }
