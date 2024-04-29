@@ -29,7 +29,7 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
-        component_separators = "|",
+        component_separators = "",
         section_separators = { left = "", right = "" },
       },
     },
@@ -98,6 +98,10 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
+  },
+  {
+    "akinsho/bufferline.nvim",
     enabled = false,
   },
 }
