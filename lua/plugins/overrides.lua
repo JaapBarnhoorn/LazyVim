@@ -1,5 +1,23 @@
 return {
   {
+    "catppuccin",
+    optional = true,
+    opts = {
+      integrations = { overseer = true },
+    },
+  },
+  {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      defaults = {
+        ["<leader>o"] = { name = "+overseer" },
+        ["<leader>h"] = { name = "+harpoon" },
+        ["<leader>n"] = { name = "npm" },
+      },
+    },
+  },
+  {
     "folke/todo-comments.nvim",
     opts = {
       colors = {
@@ -35,6 +53,19 @@ return {
     },
   },
   {
+    "folke/edgy.nvim",
+    opts = function(_, opts)
+      opts.right = opts.right or {}
+      table.insert(opts.right, {
+        title = "Overseer",
+        ft = "OverseerList",
+        open = function()
+          require("overseer").open()
+        end,
+      })
+    end,
+  },
+  {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
       opts.config.center = {
@@ -45,7 +76,7 @@ return {
           key = "f",
         },
         {
-          action = "Telescope file_browser",
+          action = require("tfm").open,
           desc = " File explorer",
           icon = " ",
           key = "e",
